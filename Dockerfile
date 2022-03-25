@@ -12,6 +12,7 @@ COPY extra-packages /
 RUN dnf config-manager --enable powertools \
     && dnf -y install --nogpgcheck https://dl.fedoraproject.org/pub/epel/epel-release-latest-$(rpm -E %rhel).noarch.rpm \
     && dnf -y install $(<extra-packages) \
+    && dnf -y install https://github.com/hivemq/mqtt-cli/releases/download/v4.7.5/mqtt-cli-4.7.5.rpm \
     && dnf clean all \
     && rm /extra-packages
 
