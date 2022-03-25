@@ -10,7 +10,7 @@ COPY README.adoc /
 # install packages
 COPY extra-packages /
 RUN dnf config-manager --enable powertools \
-    && dnf install --nogpgcheck https://dl.fedoraproject.org/pub/epel/epel-release-latest-$(rpm -E %rhel).noarch.rpm \
+    && dnf -y install --nogpgcheck https://dl.fedoraproject.org/pub/epel/epel-release-latest-$(rpm -E %rhel).noarch.rpm \
     && dnf -y install $(<extra-packages) \
     && dnf clean all \
     && rm /extra-packages
