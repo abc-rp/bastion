@@ -9,7 +9,6 @@ glibc-langpack-en
 gnupg
 gnupg2-smime
 hostname
-htop
 httpie
 iftop
 iputils
@@ -17,7 +16,6 @@ keyutils
 less
 lsof
 man-db
-man-pages
 nano
 neovim
 nmap
@@ -29,20 +27,13 @@ pigz
 procps-ng
 rsync
 screen
+screen
 shadow-utils
 sudo
-tcpdump
-telnet
 time
-tlog
-tmux
-traceroute
-tree
 unzip
 vte-profile
 wget
 which
-whois
-words
 xz
 zip

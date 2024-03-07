@@ -1,6 +1,6 @@
-FROM quay.io/centos/centos:stream8
+FROM registry.access.redhat.com/ubi9/ubi:9.3
 
-ENV NAME=bastion VERSION=8
+ENV NAME=bastion VERSION=9.3
 ENV VISUAL=nvim
 LABEL name="$NAME" \
     version="$VERSION"
@@ -9,10 +9,9 @@ COPY README.adoc /
 
 # install packages
 COPY extra-packages /
-RUN dnf config-manager --enable powertools \
-    && dnf -y install --nogpgcheck https://dl.fedoraproject.org/pub/epel/epel-release-latest-$(rpm -E %rhel).noarch.rpm \
+RUN dnf -y install --nogpgcheck https://dl.fedoraproject.org/pub/epel/epel-release-latest-$(rpm -E %rhel).noarch.rpm \
     && dnf -y install $(<extra-packages) \
-    && dnf -y install https://github.com/hivemq/mqtt-cli/releases/download/v4.7.5/mqtt-cli-4.7.5.rpm \
+    && dnf -y install https://github.com/hivemq/mqtt-cli/releases/download/v4.26.0/mqtt-cli-4.26.0.rpm \
     && dnf clean all \
     && rm /extra-packages
 
